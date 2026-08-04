@@ -19,7 +19,7 @@ const PREVIEW_STEPS = ["정보입력", "정보확인", "완료"]
 type PreviewRow = { label: string; amount: number; date: string }
 
 const PREVIEW_COLUMNS: DataGridColumn<PreviewRow>[] = [
-  { key: "label", header: "적요" },
+  { key: "label", header: "항목명" },
   {
     key: "amount",
     header: "금액",
@@ -35,9 +35,9 @@ const PREVIEW_COLUMNS: DataGridColumn<PreviewRow>[] = [
 ]
 
 const PREVIEW_ROWS: PreviewRow[] = [
-  { label: "정기예금 이자", amount: 125_000, date: "2026-07-20" },
-  { label: "급여", amount: 3_200_000, date: "2026-07-18" },
-  { label: "카드대금", amount: -642_000, date: "2026-07-15" },
+  { label: "샘플 항목 A", amount: 125_000, date: "2026-07-20" },
+  { label: "샘플 항목 B", amount: 3_200_000, date: "2026-07-18" },
+  { label: "샘플 항목 C", amount: -642_000, date: "2026-07-15" },
 ]
 
 const RESULT_VARIANTS: { id: ResultVariant; label: string }[] = [
@@ -55,7 +55,7 @@ export function CompositionGallery() {
       <FormSection title="SearchPanel + DataGrid">
         <SearchPanel onSearch={() => {}} onReset={() => {}}>
           <FormRow label="검색어">
-            <Input placeholder="적요를 입력하세요" className="max-w-xs" />
+            <Input placeholder="검색어를 입력하세요" className="max-w-xs" />
           </FormRow>
         </SearchPanel>
         <div className="mt-3">
@@ -78,9 +78,13 @@ export function CompositionGallery() {
           >
             <ConfirmSummary
               columns={[
-                { label: "출금계좌", value: "자유입출금 110-632-892336" },
-                { label: "입금계좌", value: "333-330-730135" },
-                { label: "이체금액", value: "500,000원", emphasis: true },
+                { label: "필드 A", value: "값 A" },
+                { label: "필드 B", value: "값 B" },
+                {
+                  label: "필드 C",
+                  value: formatAmount(500_000),
+                  emphasis: true,
+                },
               ]}
             />
           </StepLayout>

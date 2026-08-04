@@ -93,7 +93,7 @@ Modal 베이스 위에 있지만 인증 정책·오류 문구·POL 수치를 하
 |---|---|---|---|
 | OtpModal(A-93) | `src/entities/auth/ui/otp-modal.tsx` | `open`, `onClose`, `onConfirm(code)`, `guide` | B-05, C-05, D-05, D-01~03, E-01~04, G-01~04 — 이체·자동이체·예약이체 인증 단계 전반 |
 | SessionExpiredModal(A-11) | `src/entities/auth/ui/session-expired-modal.tsx` | `open`, `onRelogin`, `onMainScreen` | 전 화면(`App.tsx`의 `SessionExpiredGate`가 POL-001 10분 무조작 타임아웃 시 전역으로 띄운다) |
-| LimitModal | `src/entities/transfer/ui/limit-modal.tsx` | `open`, `onClose`, `perDay`, `perTransfer`, `dailyRemaining`, `onChangeLimit` | (데모만; 실 화면 미연결 — §6 참조) |
+| LimitModal | `src/entities/transfer/ui/limit-modal.tsx` | `open`, `onClose`, `perDay`, `perTransfer`, `dailyRemaining`, `onChangeLimit` | (미연결 — §6 참조) |
 
 ## 6. 아키타입 재사용 집계
 
@@ -101,13 +101,15 @@ Modal 베이스 위에 있지만 인증 정책·오류 문구·POL 수치를 하
 |---|---|---|---|
 | 조회 그리드(A-94, DataGrid) | A-94 | **14개 화면** | §2 목록 참조. C-02는 컴포넌트 존재하나 라우팅 미연결 |
 | 스텝 레이아웃(A-95, StepLayout) | A-95 | **18개 화면** | 4개 거래(상품가입·즉시이체·예약이체·자동이체) + 회원가입 |
-| 모달(A-91/92/93, Modal 계열) | A-91·92·93 | **18개 화면** | Modal 베이스 위에 AlertDialog/ConfirmDialog/ErrorDialog/OtpModal 4종이 합성됨. SessionExpiredModal은 전 화면에서 전역으로 동작해 화면ID 집계에 포함하지 않는다. LimitModal만 아직 실 화면에 미연결(`/design-system` 데모에만 존재) |
+| 모달(A-91/92/93, Modal 계열) | A-91·92·93 | **18개 화면** | Modal 베이스 위에 AlertDialog/ConfirmDialog/ErrorDialog/OtpModal 4종이 합성됨. SessionExpiredModal은 전 화면에서 전역으로 동작해 화면ID 집계에 포함하지 않는다. LimitModal만 아직 미연결(§6 참조) |
 
 ## 7. 알려진 갭 (설계 시 참고)
 
 - **LimitModal**: 컴포넌트는 구현되어 있으나 D-05(이체한도 조회/변경) 화면은 `FormSection` +
   `SummaryRow` + `ConfirmDialog` + `OtpModal`을 직접 조합해 자체 구현했고 `LimitModal`을 쓰지
-  않는다. 실 사용처가 없고 `/design-system`("조합" 탭) 데모에만 등장한다.
+  않는다. 실 사용처가 없다. 도메인 데이터(`perDay`/`perTransfer`/`dailyRemaining`)가 있어야
+  의미가 성립하는 컴포넌트라 `/design-system`(도메인 콘텐츠 금지 원칙)에도 데모를 두지 않는다
+  — D-05 화면에 실제로 연결하는 작업으로만 이 갭이 닫힌다.
 
 이전에 있던 나머지 갭(D-02 `securitySlot` 빈 슬롯, C-01/C-02 `EmptyState` 플레이스홀더 라우팅,
 SessionExpiredModal 미연결)은 이후 작업에서 이미 닫혔다 — D-02는 OtpModal이 실제로 연결됐고,

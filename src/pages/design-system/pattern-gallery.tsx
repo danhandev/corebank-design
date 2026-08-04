@@ -21,9 +21,6 @@ export function PatternGallery() {
             4. NoticeBoxFooter "[알아두세요]" — 화면 하단 접이식 안내(필수)
           </li>
         </ol>
-        <p className="mt-3 text-2xs text-ink-faint">
-          예: B-01 전체계좌조회, B-03 거래내역조회, D-04 이체결과조회.
-        </p>
       </FormSection>
 
       <FormSection title="폼(스텝) 화면 골격">
@@ -32,13 +29,9 @@ export function PatternGallery() {
           <li>2. NoticeBox(선택) — 단계별 유의사항</li>
           <li>3. FormSection별 FormRow — 입력 필드, 각 필드 하단 ※ 단서</li>
           <li>4. footer — 중앙 정렬 [이전]/[다음] 액션</li>
-          <li>5. 확인 단계 — ConfirmSummary + OTP/계좌비밀번호 인증</li>
+          <li>5. 확인 단계 — ConfirmSummary + 추가 인증</li>
           <li>6. 완료 단계 — ResultPanel(성공/실패/처리중)</li>
         </ol>
-        <p className="mt-3 text-2xs text-ink-faint">
-          예: D-01~03 즉시이체, E-01~03 예약이체, G-01~03 자동이체, A-02~06
-          회원가입.
-        </p>
       </FormSection>
 
       <FormSection title="미니 예시 — 단일 필드 폼 블록">
