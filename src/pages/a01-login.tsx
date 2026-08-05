@@ -5,6 +5,7 @@ import { Input } from "@/shared/ui/input"
 import { Checkbox } from "@/shared/ui/checkbox"
 import { Button } from "@/shared/ui/button"
 import { NoticeBoxFooter } from "@/shared/ui/notice-box"
+import { Logo } from "@/shared/ui/logo"
 import { useSession } from "@/app/use-session"
 import { LOGIN_MAX_ATTEMPTS as MAX_ATTEMPTS } from "@/shared/config/policy"
 
@@ -36,7 +37,8 @@ export function A01Login() {
     <div className="flex flex-col items-center py-10">
       <div className="w-full max-w-[480px]">
         <div className="border border-border-strong bg-surface-elevated p-8 shadow-card">
-          <div className="mb-6 text-center">
+          <div className="mb-6 flex flex-col items-center text-center">
+            <Logo size={40} className="mb-4" />
             <h1 className="text-page font-bold text-ink">로그인</h1>
             <p className="mt-1 text-sm text-ink-muted">
               CoreBank 인터넷뱅킹에 오신 것을 환영합니다.

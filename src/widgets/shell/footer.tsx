@@ -1,6 +1,7 @@
 import { ArrowUp } from "lucide-react"
 import { IconButton } from "@/shared/ui/icon-button"
 import { Divider } from "@/shared/ui/divider"
+import { Logo } from "@/shared/ui/logo"
 import {
   CUSTOMER_CENTER_PHONE,
   CUSTOMER_CENTER_HOURS,
@@ -27,6 +28,7 @@ export function Footer() {
       <div className="mx-auto w-320 px-4 py-8">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
+            <Logo size={22} className="mb-4" />
             <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
               {FOOTER_LINKS.map((link, i) => (
                 <li key={link} className="flex items-center gap-4">
