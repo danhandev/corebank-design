@@ -46,22 +46,22 @@ export function Logo({
         className="shrink-0"
       >
         <circle cx="24" cy="24" r="24" fill={circleFill} />
-        {/* 세리프 CB 모노그램. C를 크게 두고 B를 안쪽으로 겹쳐 배치한다. */}
+        {/* 세리프 CB 모노그램. 참조 그대로 C를 크게 두고 B를 C 안쪽으로 깊게 맞물려 중앙 배치한다. */}
         <text
-          x="9.5"
-          y="34"
+          x="7"
+          y="35"
           fontFamily="Georgia, 'Times New Roman', serif"
-          fontSize="30"
+          fontSize="34"
           fontWeight="700"
           fill={glyphFill}
         >
           C
         </text>
         <text
-          x="22"
-          y="34.5"
+          x="18.5"
+          y="35"
           fontFamily="Georgia, 'Times New Roman', serif"
-          fontSize="26"
+          fontSize="34"
           fontWeight="700"
           fill={glyphFill}
         >
