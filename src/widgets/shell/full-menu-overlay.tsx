@@ -76,17 +76,18 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
                 <div className="flex flex-col gap-7">
                   {cat.groups.map((group) => (
                     <div key={group.title}>
-                      <p className="mb-2.5 text-xs font-label whitespace-nowrap text-ink-faint">
+                      <p className="mb-2 flex items-center gap-1.5 text-sm font-heading whitespace-nowrap text-ink">
+                        <span aria-hidden="true" className="h-3 w-0.5 bg-primary" />
                         {group.title}
                       </p>
-                      <ul className="flex flex-col gap-2.5">
+                      <ul className="flex flex-col gap-1.5 pl-2">
                         {group.items.map((item) => (
                           <li key={`${item.screenId}-${item.path}`}>
                             <Link
                               to={item.path}
                               data-screen-id={item.screenId}
                               onClick={onClose}
-                              className="inline-block text-base font-label whitespace-nowrap text-ink hover:text-primary hover:underline"
+                              className="inline-block text-[13px] font-label whitespace-nowrap text-ink-muted hover:text-primary hover:underline"
                             >
                               {item.label}
                             </Link>
