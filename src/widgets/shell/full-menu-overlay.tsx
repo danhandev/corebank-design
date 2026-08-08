@@ -38,17 +38,13 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
       aria-modal="true"
       aria-label="전체메뉴"
     >
-      {/* 헤더 아래 영역을 덮는 딤. 빈 곳을 누르면 닫힌다. */}
-      <button
-        type="button"
-        aria-label="전체메뉴 닫기"
+      {/* 메뉴 시트 — 헤더 아래부터 화면 맨 아래까지 흰 배경으로 채운다.
+          시트의 빈 영역을 누르면 닫힌다. */}
+      <div
         onClick={onClose}
-        className="absolute inset-0 bg-overlay-scrim"
-      />
-
-      {/* 메뉴 시트 — 헤더 바로 아래에서 펼쳐진다 */}
-      <div className="absolute inset-x-0 top-0 border-t-2 border-navy bg-surface-elevated shadow-pop">
-        <div className="mx-auto w-320 px-4">
+        className="absolute inset-0 flex flex-col overflow-y-auto border-t-2 border-navy bg-surface-elevated shadow-pop"
+      >
+        <div className="mx-auto w-320 px-4" onClick={(e) => e.stopPropagation()}>
           <div className="flex h-14 items-center justify-between">
             <span className="text-h2 font-heading text-ink">전체메뉴</span>
             <IconButton
