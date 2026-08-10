@@ -42,7 +42,7 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
           시트의 빈 영역을 누르면 닫힌다. */}
       <div
         onClick={onClose}
-        className="absolute inset-0 flex flex-col overflow-y-auto border-t-2 border-navy bg-surface-elevated shadow-pop"
+        className="absolute inset-0 flex flex-col overflow-y-auto bg-surface-elevated shadow-pop"
       >
         <div className="mx-auto w-320 px-4" onClick={(e) => e.stopPropagation()}>
           <div className="flex h-14 items-center justify-between">
@@ -61,29 +61,29 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
               <div
                 key={cat.id}
                 className={cn(
-                  "px-6 pt-7",
+                  "px-8 pt-10",
                   index === 0 && "pl-0",
                   index > 0 && "border-l border-border",
                 )}
               >
-                <h3 className="mb-5 text-lg font-heading text-primary">
+                <h3 className="mb-8 text-2xl font-heading text-primary">
                   {cat.label}
                 </h3>
-                <div className="flex flex-col gap-7">
+                <div className="flex flex-col gap-10">
                   {cat.groups.map((group) => (
                     <div key={group.title}>
-                      <p className="mb-2 flex items-center gap-1.5 text-sm font-heading whitespace-nowrap text-ink">
-                        <span aria-hidden="true" className="h-3 w-0.5 bg-primary" />
+                      <p className="mb-4 flex items-center gap-2 text-lg font-heading whitespace-nowrap text-ink">
+                        <span aria-hidden="true" className="h-4 w-0.5 bg-primary" />
                         {group.title}
                       </p>
-                      <ul className="flex flex-col gap-1.5 pl-2">
+                      <ul className="flex flex-col gap-3.5 pl-3">
                         {group.items.map((item) => (
                           <li key={`${item.screenId}-${item.path}`}>
                             <Link
                               to={item.path}
                               data-screen-id={item.screenId}
                               onClick={onClose}
-                              className="inline-block text-[13px] font-label whitespace-nowrap text-ink-muted hover:text-primary hover:underline"
+                              className="inline-block text-base font-label whitespace-nowrap text-ink-muted hover:text-primary hover:underline"
                             >
                               {item.label}
                             </Link>
