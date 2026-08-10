@@ -56,7 +56,7 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
             </IconButton>
           </div>
 
-          <div className="grid grid-cols-4 border-t border-border pb-12">
+          <div className="grid grid-cols-4 pb-12">
             {NAV.map((cat, index) => (
               <div
                 key={cat.id}
@@ -66,7 +66,7 @@ export function FullMenuOverlay({ open, onClose }: FullMenuOverlayProps) {
                   index > 0 && "border-l border-border",
                 )}
               >
-                <h3 className="mb-5 border-b border-border-strong pb-3 text-lg font-heading text-primary">
+                <h3 className="mb-5 text-lg font-heading text-primary">
                   {cat.label}
                 </h3>
                 <div className="flex flex-col gap-7">
